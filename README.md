@@ -38,19 +38,19 @@ Ties are broken in order of increasing entry id as determined by `strcmp`.
 
 ##  Examples
 ```
-$ ./Blotto /c/cs223/hw4/Tests/round_robin_3.in win 1 2 3 4 <  /c/cs223/hw4/Tests/example_3.in
+$ ./Blotto /Tests/round_robin_3.in win 1 2 3 4 <  /Tests/example_3.in
   1.000 P1
   0.500 P2
   0.000 P3
 ```
 ```
-$ ./Blotto /c/cs223/hw4/Tests/round_robin_3.in score 1 2 3 4 < /c/cs223/hw4/Tests/example_3.in
+$ ./Blotto /Tests/round_robin_3.in score 1 2 3 4 < /Tests/example_3.in
   5.750 P2
   5.500 P1
   3.750 P3
 ```
 ```
-$ ./Blotto /c/cs223/hw4/Tests/round_robin_25_5.in win 1 2 3 4 5 < /c/cs223/hw4/Tests/blotto_25_5.in
+$ ./Blotto /Tests/round_robin_25_5.in win 1 2 3 4 5 < /Tests/blotto_25_5.in
   0.789 entry15
   0.763 entry23
   0.750 entry20
