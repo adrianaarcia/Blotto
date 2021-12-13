@@ -1,4 +1,5 @@
 # Blotto
+Multiplayer implementation of Blotto game. Last Updated: 11/07/2019.
 
 ## Introduction
 Blotto is a simultaneous game for two players in which the players distribute military units over a number of battlefields. 
