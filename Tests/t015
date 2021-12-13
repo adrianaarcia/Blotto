@@ -1,0 +1,23 @@
+#!/bin/bash
+# Initial size is reasonable
+
+trap "/usr/bin/killall -q -u $USER Unit 2>/dev/null" 0 1 2 3 9 15
+trap "/bin/rm -f $STDERR" 0 1 2 3 9 15
+if [ -e i_count.txt ]; then
+  rm i_count.txt
+fi
+
+for N in 1; do
+  for ON in 0 1; do
+    /c/cs474/bin/run -stdout=stdout.out -stderr=/dev/null /usr/bin/valgrind --tool=cachegrind --trace-children=yes --log-file=valgrind.out ./Unit 15 $N $ON
+    COMPLETE=`grep "I   refs" valgrind.out`
+    if [ "$COMPLETE" == "" ]; then
+      echo "FAIL: test did not complete"
+      exit
+    fi
+
+    grep "I   refs" valgrind.out | cut -d':' -f 2 | sed "s/,//g" >> i_count.txt
+  done
+done
+/c/cs223/bin/big_oh.py -message t015 -linear 1000000 1 < i_count.txt
+rm i_count.txt
